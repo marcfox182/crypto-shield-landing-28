@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Bitcoin/Crypto Landing Page Design System - Dark Theme */
+
+@layer base {
+  :root {
+    /* Bitcoin/Crypto Dark Color Palette */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Bitcoin Orange */
+    --primary: 25 95% 53%;
+    --primary-foreground: 240 10% 3.9%;
+
+    /* Deep Teal */
+    --secondary: 186 100% 20%;
+    --secondary-foreground: 0 0% 98%;
+
+    /* Dark Gray */
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+
+    /* Pink Accent */
+    --accent: 330 80% 70%;
+    --accent-foreground: 240 10% 3.9%;
+
+    /* Gold */
+    --gold: 43 74% 66%;
+    --gold-foreground: 240 10% 3.9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 25 95% 53%;
+
+    --radius: 1rem;
+
+    /* Gradients */
+    --gradient-bitcoin: linear-gradient(135deg, hsl(25 95% 53%) 0%, hsl(43 74% 66%) 100%);
+    --gradient-teal: linear-gradient(135deg, hsl(186 100% 20%) 0%, hsl(191 85% 35%) 100%);
+    --gradient-pink: linear-gradient(135deg, hsl(330 80% 70%) 0%, hsl(320 85% 75%) 100%);
+    --gradient-dark: linear-gradient(135deg, hsl(240 10% 3.9%) 0%, hsl(215 27.9% 16.9%) 100%);
+    
+    /* Glass Effects */
+    --glass-bg: hsla(240, 10%, 3.9%, 0.1);
+    --glass-border: hsla(0, 0%, 100%, 0.1);
+    --glass-shadow: 0 8px 32px hsla(25, 95%, 53%, 0.1);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+    background-image: 
+      radial-gradient(circle at 20% 50%, hsla(25, 95%, 53%, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsla(186, 100%, 20%, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, hsla(330, 80%, 70%, 0.02) 0%, transparent 50%);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-space-grotesk font-semibold;
+  }
+}
+
+@layer components {
+  /* Glass morphism effects */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+  
+  .glass-subtle {
+    background: hsla(240, 10%, 3.9%, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid hsla(0, 0%, 100%, 0.05);
+  }
+
+  /* Button variants */
+  .btn-bitcoin {
+    @apply bg-gradient-to-r from-orange-500 to-yellow-500 text-background font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/25;
+  }
+  
+  .btn-teal {
+    @apply bg-gradient-to-r from-teal-600 to-cyan-600 text-foreground font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-teal-500/25;
+  }
+  
+  .btn-pink {
+    @apply bg-gradient-to-r from-pink-500 to-rose-500 text-background font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/25;
+  }
+
+  /* Text gradients */
+  .text-gradient-bitcoin {
+    @apply bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-teal {
+    @apply bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-pink {
+    @apply bg-gradient-to-r from-pink-400 to-rose-400 bg-clip-text text-transparent;
+  }
+
+  /* Animation classes */
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Stagger delays */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text-shadow-glow {
+    text-shadow: 0 0 20px hsl(25 95% 53% / 0.5);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px hsl(25 95% 53% / 0.2), 0 0 40px hsl(25 95% 53% / 0.1);
+  }
+  to {
+    box-shadow: 0 0 30px hsl(25 95% 53% / 0.4), 0 0 60px hsl(25 95% 53% / 0.2);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
